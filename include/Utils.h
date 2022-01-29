@@ -23,7 +23,7 @@ std::string readFile(const std::string &path)
 }
 
 template <typename T>
-std::vector<T> splitLines(const std::string &data, const char delim = '\n')
+std::vector<T> splitValues(const std::string &data, const char delim = '\n')
 {
   std::vector<T> values;
   std::stringstream ss(data);
@@ -38,7 +38,7 @@ std::vector<T> splitLines(const std::string &data, const char delim = '\n')
 }
 
 template <>
-std::vector<std::string> splitLines(const std::string &data, const char delim)
+std::vector<std::string> splitValues(const std::string &data, const char delim)
 {
   std::vector<std::string> values;
   std::stringstream ss(data);
@@ -54,7 +54,7 @@ std::vector<T> readLines(const std::string &path, const char delim = '\n')
 {
   const auto data = readFile(path);
   if (data.empty()) return {};
-  return splitLines<T>(data, delim);
+  return splitValues<T>(data, delim);
 }
 
 int str2bin(const std::string &bin)
