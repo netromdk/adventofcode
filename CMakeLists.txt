@@ -10,6 +10,8 @@ if (NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
+option(USE_CCACHE "Use ccache (if found) to speed up compile and link" OFF)
+
 include(compilation)
 include(adventofcode)
 include(testing)
