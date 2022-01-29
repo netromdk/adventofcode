@@ -37,12 +37,29 @@ std::vector<T> splitLines(const std::string &data, const char delim = '\n')
   return values;
 }
 
+template <>
+std::vector<std::string> splitLines(const std::string &data, const char delim)
+{
+  std::vector<std::string> values;
+  std::stringstream ss(data);
+  std::string line;
+  while (std::getline(ss, line, delim)) {
+    values.push_back(line);
+  }
+  return values;
+}
+
 template <typename T>
 std::vector<T> readLines(const std::string &path, const char delim = '\n')
 {
   const auto data = readFile(path);
   if (data.empty()) return {};
   return splitLines<T>(data, delim);
+}
+
+int str2bin(const std::string &bin)
+{
+  return std::stoi(bin, 0, 2);
 }
 
 } // namespace Utils
