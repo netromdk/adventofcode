@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <fstream>
 #include <iterator>
+#include <numeric>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -69,6 +70,12 @@ typename std::iterator_traits<typename Container::iterator>::difference_type
 count_if(const Container &c, UnaryPredicate p)
 {
   return std::count_if(std::begin(c), std::end(c), p);
+}
+
+template <typename Container, typename T, typename BinaryOperation>
+constexpr T accumulate(const Container &c, T init, BinaryOperation op)
+{
+  return std::accumulate(std::begin(c), std::end(c), init, op);
 }
 
 } // namespace Utils

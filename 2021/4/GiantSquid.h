@@ -71,13 +71,9 @@ public:
 
   int unmarkedSum() const
   {
-    int sum = 0;
-    for (auto &field : fields) {
-      if (!field.marked) {
-        sum += field.number;
-      }
-    }
-    return sum;
+    return Utils::accumulate(fields, 0, [](int acc, const auto &field) {
+      return acc + (!field.marked ? field.number : 0);
+    });
   }
 
 private:
