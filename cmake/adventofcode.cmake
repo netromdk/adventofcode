@@ -2,7 +2,7 @@ function(adventofcode_puzzle name)
   project(${name})
 
   include_directories(
-    ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/src
     )
 
   set(testName "test_${PROJECT_NAME}")
@@ -29,6 +29,7 @@ function(adventofcode_puzzle name)
 
   target_link_libraries(
     ${testName}
+    utils
     gtest
     )
 

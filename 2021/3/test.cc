@@ -1,27 +1,26 @@
 #include "gtest/gtest.h"
 
 #include "BinaryDiagnostic.h"
-#include "Utils.h"
+#include "utils.h"
 
-const auto TEST_INPUT_VALUES = Utils::readLines<std::string>(TEST_INPUT_FILE);
-const auto INPUT_VALUES = Utils::readLines<std::string>(INPUT_FILE);
+using LineType = std::string;
 
 TEST(BinaryDiagnostic, part1_testInput)
 {
-  EXPECT_EQ(198, BinaryDiagnostic::powerConsumption(TEST_INPUT_VALUES));
+  EXPECT_EQ(198, BinaryDiagnostic::powerConsumption(utils::readLines<LineType>(TEST_INPUT_FILE)));
 }
 
 TEST(BinaryDiagnostic, part2_testInput)
 {
-  EXPECT_EQ(230, BinaryDiagnostic::lifeSupportRating(TEST_INPUT_VALUES));
+  EXPECT_EQ(230, BinaryDiagnostic::lifeSupportRating(utils::readLines<LineType>(TEST_INPUT_FILE)));
 }
 
 TEST(BinaryDiagnostic, part1_input)
 {
-  EXPECT_EQ(3901196, BinaryDiagnostic::powerConsumption(INPUT_VALUES));
+  EXPECT_EQ(3901196, BinaryDiagnostic::powerConsumption(utils::readLines<LineType>(INPUT_FILE)));
 }
 
 TEST(BinaryDiagnostic, part2_input)
 {
-  EXPECT_EQ(4412188, BinaryDiagnostic::lifeSupportRating(INPUT_VALUES));
+  EXPECT_EQ(4412188, BinaryDiagnostic::lifeSupportRating(utils::readLines<LineType>(INPUT_FILE)));
 }

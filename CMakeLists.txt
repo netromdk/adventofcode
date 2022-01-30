@@ -14,6 +14,9 @@ option(USE_CCACHE "Use ccache (if found) to speed up compile and link" OFF)
 option(EVERY_WARNING "Use -Weverything (clang only)" OFF)
 
 include(compilation)
+
+add_subdirectory(src)
+
 include(adventofcode)
 include(testing)
 

@@ -2,31 +2,18 @@
 #define UTILS_H
 
 #include <algorithm>
-#include <fstream>
 #include <iterator>
 #include <numeric>
 #include <sstream>
 #include <string>
 #include <vector>
 
-namespace Utils {
+namespace utils {
 
-std::string readFile(const std::string &path)
-{
-  std::ifstream is(path, std::ios::binary | std::ios::ate);
-  if (!is) return {};
-
-  const auto size = is.tellg();
-  std::string data(size, '\0');
-  is.seekg(0);
-  if (is.read(&data[0], size)) {
-    return data;
-  }
-  return {};
-}
+std::string readFile(const std::string &path);
 
 template <typename T>
-std::vector<T> splitValues(const std::string &data, const char delim = '\n')
+inline std::vector<T> splitValues(const std::string &data, const char delim = '\n')
 {
   std::vector<T> values;
   std::stringstream ss(data);
@@ -41,7 +28,7 @@ std::vector<T> splitValues(const std::string &data, const char delim = '\n')
 }
 
 template <>
-std::vector<std::string> splitValues(const std::string &data, const char delim)
+inline std::vector<std::string> splitValues(const std::string &data, const char delim)
 {
   std::vector<std::string> values;
   std::stringstream ss(data);
@@ -60,10 +47,7 @@ std::vector<T> readLines(const std::string &path, const char delim = '\n')
   return splitValues<T>(data, delim);
 }
 
-int str2bin(const std::string &bin)
-{
-  return std::stoi(bin, 0, 2);
-}
+int str2bin(const std::string &bin);
 
 template <typename Container, typename UnaryPredicate>
 typename std::iterator_traits<typename Container::iterator>::difference_type
@@ -78,6 +62,6 @@ constexpr T accumulate(const Container &c, T init, BinaryOperation op)
   return std::accumulate(std::begin(c), std::end(c), init, op);
 }
 
-} // namespace Utils
+} // namespace utils
 
 #endif // UTILS_H

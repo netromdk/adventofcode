@@ -10,7 +10,7 @@ day=$2
 name=$3
 cap_name=$(echo $name | tr '[:lower:]' '[:upper:]')
 path=${year}/${day}
-hdr_guard="__${year}_${day}_${cap_name}_H__"
+hdr_guard="_${year}_${day}_${cap_name}_H_"
 year_subdir="add_subdirectory(${year})"
 day_subdir="add_subdirectory(${day})"
 
@@ -22,7 +22,7 @@ cat <<EOT > ${path}/${name}.h
 #ifndef ${hdr_guard}
 #define ${hdr_guard}
 
-#include "Utils.h"
+#include "utils.h"
 
 namespace ${name} {
 
@@ -38,30 +38,28 @@ cat <<EOF > ${path}/test.cc
 #include "gtest/gtest.h"
 
 #include "${name}.h"
-#include "Utils.h"
+#include "utils.h"
 
 using LineType = int;
-const auto TEST_INPUT_VALUES = Utils::readLines<LineType>(TEST_INPUT_FILE);
-const auto INPUT_VALUES = Utils::readLines<LineType>(INPUT_FILE);
 
 TEST(${name}, part1_testInput)
 {
-  EXPECT_EQ(0, ${name}::part1(TEST_INPUT_VALUES));
+  EXPECT_EQ(0, ${name}::part1(Utils::readLines<LineType>(TEST_INPUT_FILE)));
 }
 
 TEST(${name}, part2_testInput)
 {
-  EXPECT_EQ(0, ${name}::part2(TEST_INPUT_VALUES));
+  EXPECT_EQ(0, ${name}::part2(Utils::readLines<LineType>(TEST_INPUT_FILE)));
 }
 
 TEST(${name}, part1_input)
 {
-  EXPECT_EQ(0, ${name}::part1(INPUT_VALUES));
+  EXPECT_EQ(0, ${name}::part1(Utils::readLines<LineType>(INPUT_FILE)));
 }
 
 TEST(${name}, part2_input)
 {
-  EXPECT_EQ(0, ${name}::part2(INPUT_VALUES));
+  EXPECT_EQ(0, ${name}::part2(Utils::readLines<LineType>(INPUT_FILE)));
 }
 EOF
 

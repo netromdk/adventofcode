@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
 
 #include "GiantSquid.h"
-#include "Utils.h"
 
 TEST(GiantSquid, part1_testInput)
 {
