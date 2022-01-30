@@ -10,7 +10,7 @@ include_directories(
 
 add_library(
   gtest
-  SHARED
+  STATIC
   gtest/src/gtest-all.cc
   gtest/src/gtest_main.cc
   )

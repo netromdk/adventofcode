@@ -44,22 +44,22 @@ using LineType = int;
 
 TEST(${name}, part1_testInput)
 {
-  EXPECT_EQ(0, ${name}::part1(Utils::readLines<LineType>(TEST_INPUT_FILE)));
+  EXPECT_EQ(0, ${name}::part1(utils::readLines<LineType>(TEST_INPUT_FILE)));
 }
 
 TEST(${name}, part2_testInput)
 {
-  EXPECT_EQ(0, ${name}::part2(Utils::readLines<LineType>(TEST_INPUT_FILE)));
+  EXPECT_EQ(0, ${name}::part2(utils::readLines<LineType>(TEST_INPUT_FILE)));
 }
 
 TEST(${name}, part1_input)
 {
-  EXPECT_EQ(0, ${name}::part1(Utils::readLines<LineType>(INPUT_FILE)));
+  EXPECT_EQ(0, ${name}::part1(utils::readLines<LineType>(INPUT_FILE)));
 }
 
 TEST(${name}, part2_input)
 {
-  EXPECT_EQ(0, ${name}::part2(Utils::readLines<LineType>(INPUT_FILE)));
+  EXPECT_EQ(0, ${name}::part2(utils::readLines<LineType>(INPUT_FILE)));
 }
 EOF
 

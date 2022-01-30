@@ -1,5 +1,5 @@
 add_library(
   utils
-  SHARED
-  Utils.cc
+  STATIC
+  utils.cc
   )
