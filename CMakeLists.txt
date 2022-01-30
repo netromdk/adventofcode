@@ -11,6 +11,7 @@ if (NOT CMAKE_BUILD_TYPE)
 endif()
 
 option(USE_CCACHE "Use ccache (if found) to speed up compile and link" OFF)
+option(EVERY_WARNING "Use -Weverything (clang only)" OFF)
 
 include(compilation)
 include(adventofcode)
