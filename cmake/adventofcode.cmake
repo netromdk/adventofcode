@@ -7,9 +7,15 @@ function(adventofcode_puzzle name)
 
   set(testName "test_${PROJECT_NAME}")
 
+  file(
+    GLOB sources
+    RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+    "*.cc"
+    )
+
   add_executable(
     ${testName}
-    test.cc
+    ${sources}
     )
 
   cmake_path(GET CMAKE_CURRENT_SOURCE_DIR FILENAME day)
