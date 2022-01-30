@@ -1,7 +1,9 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <algorithm>
 #include <fstream>
+#include <iterator>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -60,6 +62,13 @@ std::vector<T> readLines(const std::string &path, const char delim = '\n')
 int str2bin(const std::string &bin)
 {
   return std::stoi(bin, 0, 2);
+}
+
+template <typename Container, typename UnaryPredicate>
+typename std::iterator_traits<typename Container::iterator>::difference_type
+count_if(const Container &c, UnaryPredicate p)
+{
+  return std::count_if(std::begin(c), std::end(c), p);
 }
 
 } // namespace Utils
