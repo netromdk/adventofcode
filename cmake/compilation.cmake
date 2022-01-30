@@ -86,3 +86,8 @@ if (USE_CCACHE)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
   endif()
 endif()
+
+if (ADDRESS_SANITIZER)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -fno-omit-frame-pointer -fno-optimize-sibling-calls")
+  set(CMAKE_BUILD_TYPE Debug)
+endif()
