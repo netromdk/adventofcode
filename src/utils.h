@@ -62,6 +62,30 @@ constexpr T accumulate(const Container &c, T init, BinaryOperation op)
   return std::accumulate(std::begin(c), std::end(c), init, op);
 }
 
+template <typename Container>
+auto max_element(const Container &c)
+{
+  return std::max_element(std::begin(c), std::end(c));
+}
+
+template <typename Container, typename Compare>
+auto max_element(const Container &c, Compare cmp)
+{
+  return std::max_element(std::begin(c), std::end(c), cmp);
+}
+
+template <typename Container>
+auto min_element(const Container &c)
+{
+  return std::min_element(std::begin(c), std::end(c));
+}
+
+template <typename Container, typename Compare>
+auto min_element(const Container &c, Compare cmp)
+{
+  return std::min_element(std::begin(c), std::end(c), cmp);
+}
+
 } // namespace utils
 
 #endif // UTILS_H
